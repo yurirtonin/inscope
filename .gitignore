@@ -1,2 +1,5 @@
+.DS_Store
 **.ipynb_checkpoints
 **python/.ipynb_checkpoints/ 
+.vscode/
+*data/

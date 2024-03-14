@@ -1,4 +1,4 @@
-# Inskopeo
+# Inscope
 
 Repository for Inverse problems in imaging and microscopy
 

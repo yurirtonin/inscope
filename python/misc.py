@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
+import sys
 
-def propagate(wavefront,sample_to_object_distance,source_to_sample_distance=0,wavelength = 0,type='fourier'):
+def propagate(wavefront,sample_to_object_distance,wavelength = 0,source_to_sample_distance=0,type='fourier'):
     
     if type == 'fourier':
         if z > 0:
@@ -32,6 +33,11 @@ def propagate(wavefront,sample_to_object_distance,source_to_sample_distance=0,wa
     else:
         sys.exit('Please, select a valid propagator: fourier or fresnel') 
 
+def energy_to_wavelength(energy_ev):
+    speed_of_light = 299792458 # m/s
+    planck_const = 4.135667696e-15 # eV/s
+    wavelength = planck_const*speed_of_light/energy_ev
+    return wavelength
 
 def read_cxi(path):
     data = h5py.File(path,'r')
@@ -45,3 +51,7 @@ def read_cxi(path):
     energy = energy / one_kev_in_joules
     
     return diffraction_patterns, positions, energy, distance, pixel_size
+
+def check_data(DPs, positions, initial_obj, initial_probe):
+    print('Checking data...')
+    

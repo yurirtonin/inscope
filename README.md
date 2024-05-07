@@ -1,6 +1,6 @@
-# Ptychography
+# Inscope
 
-Repository for ptychography algorithms
+Repository for Inverse problems in imaging and microscopy
 
 # Author(s)
 
